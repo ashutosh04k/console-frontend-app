@@ -14,29 +14,39 @@ import ShoppingAccount from '@/pages/shoppingview/account';
 import ShoppingListing from '@/pages/shoppingview/listing';
 import ShoppingCheckout from '@/pages/shoppingview/checkout';
 import ShoppingHome from '@/pages/shoppingview/home';
+import CheckAuth from '../common/checkauth';
 
 const routes = () => {
+
+    const user = 
+    {
+      name:"ashu",
+      role:"user"
+    };
+    const isAuthenticated = false;
+
+
   return (
     <div className="flex flex-col overflow-hidden bg-white " >
       <Routes>
-        <Route path="/auth" element={<AuthLayout/>}>
+        <Route path="/auth" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><AuthLayout/></CheckAuth>}>
           <Route path="login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
         </Route>
-        <Route path="/admin" element={<AdminLayout/>}>
+        <Route path="/admin" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><AdminLayout/></CheckAuth>}>
           <Route path="dashboard" element={<AdminDashboard/>}/>
           <Route path="order" element={<AdminOrders/>}/>
           <Route path="feature" element={<AdminFeature/>}/>
           <Route path="product" element={<AdminProduct/>}/>
         </Route>
-        <Route path="/shop" element={<Shoppinglayout/>}>
+        <Route path="/shop" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><Shoppinglayout/></CheckAuth>}>
           <Route path="home" element={<ShoppingHome/>}/>
           <Route path="listing" element={<ShoppingListing/>}/>
           <Route path="checkout" element={<ShoppingCheckout/>}/>
           <Route path="account" element={<ShoppingAccount/>}/>
         </Route>
         <Route path="*" element={<Routeerror/>}/>
-
+        {/* <Route path="/" element={<ShoppingHome/>}/> */}
       </Routes>
     </div>
   )
