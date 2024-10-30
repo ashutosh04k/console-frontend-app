@@ -1,4 +1,4 @@
-import { Input } from "../ui/input";
+import { Input } from "antd";
 import { Label } from "../ui/label";
 import {
   Select,
@@ -110,15 +110,15 @@ function CommonForm({
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 text-white items-center">
         {formControls.map((controlItem) => (
-          <div className="grid w-full gap-1.5" key={controlItem.name}>
+          <div className="grid w-80 gap-1.5" key={controlItem.name}>
             <Label className="mb-1">{controlItem.label}</Label>
             {renderInputsByComponentType(controlItem)}
           </div>
         ))}
       </div>
-      <Button disabled={isBtnDisabled} type="submit" className="mt-2 w-full">
+      <Button disabled={isBtnDisabled} type="submit" className="mt-8 w-full w-80 hover:bg-gradient-to-r from-[#29323c] via-[#485563] to-[#4e4376] shadow-md hover:shadow-lg text-white py-2 px-4 rounded">
         {buttonText || "Submit"}
       </Button>
     </form>
