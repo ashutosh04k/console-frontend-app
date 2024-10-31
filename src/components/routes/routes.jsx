@@ -18,18 +18,17 @@ import CheckAuth from '../common/checkauth';
 import { useDispatch, useSelector } from 'react-redux';
 import { checkAuth } from '@/store/auth-slice/authslice';
 import { Skeleton } from 'antd';
+// import UnauthPage from '../../pages/unauth-page/index';
 
 const routes = () => {
-  const { user, isAuthenticated ,isloading } = useSelector((state) => state.auth);
-  const dispatch = useDispatch();
-  
+  const { user, isAuthenticated ,isLoading } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();  
 
   useEffect(() => {
     dispatch(checkAuth());
-  }, []);
+  }, [dispatch]);
   
-  if(isloading) return <Skeleton >loading.....</Skeleton> 
-  console.log(isloading,user)
+  if(isLoading) return <Skeleton >loading.....</Skeleton> 
 
   return (
     <div className="flex flex-col overflow-hidden bg-white " >
@@ -51,8 +50,8 @@ const routes = () => {
           <Route path="checkout" element={<ShoppingCheckout />} />
           <Route path="account" element={<ShoppingAccount />} />
         </Route>
+        {/* <Route path="/unauth-page" element={UnauthPage}/> */}
         <Route path="*" element={<Routeerror />} />
-        {/* <Route path="/" element={<ShoppingHome/>}/> */}
       </Routes>
     </div>
   )
