@@ -40,9 +40,9 @@ const routes = () => {
         </Route>
         <Route path="/admin" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><AdminLayout /></CheckAuth>}>
           <Route path="dashboard" element={<AdminDashboard />} />
-          <Route path="order" element={<AdminOrders />} />
+          <Route path="orders" element={<AdminOrders />} />
           <Route path="feature" element={<AdminFeature />} />
-          <Route path="product" element={<AdminProduct />} />
+          <Route path="products" element={<AdminProduct />} />
         </Route>
         <Route path="/shop" element={<CheckAuth isAuthenticated={isAuthenticated} user={user}><Shoppinglayout /></CheckAuth>}>
           <Route path="home" element={<ShoppingHome />} />

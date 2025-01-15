@@ -1,5 +1,4 @@
 import CommonForm from "@/components/common/form";
-// import { useToast } from "@/components/ui/use-toast";
 import { loginFormControls } from "@/config";
 import { loginUser } from "@/store/auth-slice/authslice";
 import { message } from "antd";
@@ -15,7 +14,6 @@ const initialState = {
 const AuthLogin =() => {
   const [formData, setFormData] = useState(initialState);
   const dispatch = useDispatch();
-  // const { toast } = useToast();
 
   function onSubmit(event){
     event.preventDefault();

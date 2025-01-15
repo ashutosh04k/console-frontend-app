@@ -41,15 +41,15 @@ export const loginFormControls = [
 
 export const addProductFormElements = [
   {
-    label: "Title",
     name: "title",
+    label: "Title",
     componentType: "input",
     type: "text",
     placeholder: "Enter product title",
   },
   {
-    label: "Description",
     name: "description",
+    label: "Description",
     componentType: "textarea",
     placeholder: "Enter product description",
   },

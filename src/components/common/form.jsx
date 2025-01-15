@@ -52,7 +52,7 @@ function CommonForm({
             }
             value={value}
           >
-            <SelectTrigger className="w-full">
+            <SelectTrigger className="w-full text-black">
               <SelectValue placeholder={getControlItem.label} />
             </SelectTrigger>
             <SelectContent>
@@ -113,7 +113,7 @@ function CommonForm({
       <div className="flex flex-col gap-3 text-white items-center">
         {formControls.map((controlItem) => (
           <div className="grid w-80 gap-1.5" key={controlItem.name}>
-            <Label className="mb-1">{controlItem.label}</Label>
+            <Label className="mb-1 text-black">{controlItem?.label}</Label>
             {renderInputsByComponentType(controlItem)}
           </div>
         ))}
